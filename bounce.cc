@@ -17,7 +17,7 @@ void draw(double position, char symbol){
 	//draw end	
 }
 
-void move(double pos, double speed){
+void move(double& pos, double& speed){
   //move start
     pos += speed;
     if (pos >= maxColumn) {
