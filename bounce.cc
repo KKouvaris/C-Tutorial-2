@@ -8,12 +8,12 @@ char particleSymbol = 'x';
 double particlePosition = minColumn;
 double particleSpeed = 6.3;
 
-void draw(){
+void draw(double position, char symbol){
 	//draw start  
-    for (int i = 0; i < particlePosition; i++) {
+    for (int i = 0; i < position; i++) {
       std::cout << " ";
     }
-    std::cout << particleSymbol << std::endl;
+    std::cout << symbol << std::endl;
 	//draw end	
 }
 
@@ -37,7 +37,7 @@ int main() {
 
   while (timeStep < stopTime) {
 
-	draw();
+	draw(particlePosition,particleSymbol);
 	move();
 
     timeStep++;
