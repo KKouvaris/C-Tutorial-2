@@ -2,8 +2,8 @@
 
 #include <iostream>
 
-int minColumn = 0;
-int maxColumn = 80;
+const int minColumn = 0;
+const int maxColumn = 80;
 char particleSymbol = 'x';
 double particlePosition = minColumn;
 double particleSpeed = 6.3;
@@ -17,15 +17,15 @@ void draw(double position, char symbol){
 	//draw end	
 }
 
-void move(){
+void move(double pos, double speed){
   //move start
-    particlePosition += particleSpeed;
-    if (particlePosition >= maxColumn) {
-      particlePosition = maxColumn;
-      particleSpeed = -particleSpeed;
-    } else if (particlePosition < minColumn) {
-      particlePosition = minColumn;
-      particleSpeed = -particleSpeed;
+    pos += speed;
+    if (pos >= maxColumn) {
+      pos = maxColumn;
+      speed = -speed;
+    } else if (pos < minColumn) {
+      pos = minColumn;
+      speed = -speed;
     }
 	//move stop
 }
@@ -38,7 +38,7 @@ int main() {
   while (timeStep < stopTime) {
 
 	draw(particlePosition,particleSymbol);
-	move();
+	move(particlePosition,particleSpeed);
 
     timeStep++;
   }
