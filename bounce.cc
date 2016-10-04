@@ -14,7 +14,7 @@ struct Particle{
 	double speed;
 };
 
-void draw(const Particle&, char []);
+void draw(Particle&, char []);
 void move(Particle&);
 void clear_screen(char []);
 void print_screen(char []);
@@ -41,10 +41,11 @@ int main() {
 		print_screen(screen);
 		timeStep++;
 	}
+	
 	delete [] screen;
 }
 
-void draw(const Particle& p, char *screen){
+void draw(Particle& p, char *screen){
 	screen[static_cast<int>(p.position)]= p.symbol; 
 }
 
