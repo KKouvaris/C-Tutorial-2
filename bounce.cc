@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+using std::cout; using std::endl;
+
 const int minColumn = 0;
 const int maxColumn = 80;
 const int screenSize = maxColumn - minColumn + 1;
@@ -53,13 +55,13 @@ void move(double& pos, double& speed){
 
 void clear_screen(char *screen){
 	for (int i =0; i<screenSize; i++){
-		screen[i] = ' ';
+		i[screen] = ' ';
 	}
 }
 
 void print_screen(char *screen){
 	for (int i = 0; i<screenSize; i++){
-		std::cout << screen[i];
+		cout << *(screen + i);
 	}
-	std::cout << std::endl;
+	cout << endl;
 }
