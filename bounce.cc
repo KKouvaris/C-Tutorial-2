@@ -18,7 +18,7 @@ int main() {
 	int timeStep = 0;
 	const int stopTime = 60;
 
-	char screen[screenSize];
+	char* screen = new char[screenSize];
 	
 	const int particleNumber = 4;	
 	const char particleSymbol[particleNumber]={'*','+','x','o'};
@@ -34,6 +34,7 @@ int main() {
 		print_screen(screen);
 		timeStep++;
 	}
+	delete [] screen;
 }
 
 void draw(const double position, const char symbol, char *screen){
