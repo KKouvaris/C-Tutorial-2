@@ -13,6 +13,12 @@ void move(double&, double&);
 void clear_screen(char []);
 void print_screen(char []);
 
+struct Particle{
+	char symbol;
+	double position;
+	double speed;
+};
+
 int main() {
 
 	int timeStep = 0;
@@ -21,15 +27,16 @@ int main() {
 	char* screen = new char[screenSize];
 	
 	const int particleNumber = 4;	
-	const char particleSymbol[particleNumber]={'*','+','x','o'};
-	double particlePosition[particleNumber]={1,2,3,4};
-	double particleSpeed[particleNumber]={1,2,3,4};
-
+	Particle particles[particleNumber] = {	{'*',1,1},
+											{'+',2,2},
+											{'x',3,3},	
+											{'o',4,4}};
+											
 	while (timeStep < stopTime) {
 		clear_screen(screen);
 		for (int i=0; i<particleNumber; i++){
-			draw(particlePosition[i],particleSymbol[i],screen);
-			move(particlePosition[i],particleSpeed[i]);
+			draw(particles[i].position,particles[i].symbol,screen);
+			move(particles[i].position,particles[i].speed);
 		}
 		print_screen(screen);
 		timeStep++;
