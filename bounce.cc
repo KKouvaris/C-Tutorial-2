@@ -4,8 +4,7 @@
 
 const int minColumn = 0;
 const int maxColumn = 80;
-
-char screen[maxColumn];
+const int screenSize = maxColumn - minColumn + 1;
 
 void draw(const double, const char, char []);
 void move(double&, double&);
@@ -17,6 +16,8 @@ int main() {
 	int timeStep = 0;
 	const int stopTime = 60;
 
+	char screen[screenSize];
+	
 	const int particleNumber = 4;	
 	const char particleSymbol[particleNumber]={'*','+','x','o'};
 	double particlePosition[particleNumber]={1,2,3,4};
@@ -51,13 +52,13 @@ void move(double& pos, double& speed){
 }
 
 void clear_screen(char *screen){
-	for (int i =0; i<maxColumn; i++){
+	for (int i =0; i<screenSize; i++){
 		screen[i] = ' ';
 	}
 }
 
 void print_screen(char *screen){
-	for (int i = 0; i<maxColumn; i++){
+	for (int i = 0; i<screenSize; i++){
 		std::cout << screen[i];
 	}
 	std::cout << std::endl;
